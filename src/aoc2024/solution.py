@@ -1,20 +1,10 @@
 import abc
 
 
-def clean_input_lines(lines: list[str]) -> list[str]:
-    start = 0
-    end = -1
-    if not lines[0]:
-        start += 1
-    if not lines[-1]:
-        end -= 2
-    return lines[start:end]
-
-
 class BaseSolution(abc.ABC):
     def __init__(self, raw_input: str):
         self.raw_input = raw_input
-        self.input = clean_input_lines(raw_input.splitlines())
+        self.input = raw_input.splitlines()
 
     @classmethod
     def ignored(cls) -> bool:

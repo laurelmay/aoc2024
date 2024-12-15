@@ -20,7 +20,7 @@ class Day2(BaseSolution):
 
     def _parse_to_grid(self) -> list[list[int]]:
         rows = self.input
-        return [[int(col) for col in row.split()] for row in rows]
+        return [[int(col) for col in row.split()] for row in rows if row]
 
     def _is_safe_basic(self, row: list[int]) -> bool:
         start_direction = sign(row[0] - row[1])
