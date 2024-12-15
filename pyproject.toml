@@ -1,0 +1,28 @@
+[project]
+name = "aoc2024"
+version = "0.1.0"
+description = "Advent of Code 2024 solutions"
+authors = [
+    {name = "Laurel May", email = "laurel@laurelmay.me"},
+]
+dependencies = [
+    "click>=8.1.7",
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project.scripts]
+aoc2024 = "aoc2024.cli:cli"
+
+[tool.pdm]
+distribution = true
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+]
