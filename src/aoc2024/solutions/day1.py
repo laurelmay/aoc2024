@@ -13,6 +13,8 @@ class Day1(BaseSolution):
         first = []
         second = []
         for line in self.input:
+            if not line:
+                continue
             a, b = line.split()
             first.append(int(a))
             second.append(int(b))
