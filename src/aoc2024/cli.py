@@ -16,12 +16,11 @@ def available_days() -> list[str]:
 @click.option("-o", "--output-file", type=click.File("w"), default="-")
 @click.option("-d", "--day", type=click.Choice(available_days()), required=True)
 def cli(input_file: typing.IO, output_file: typing.IO, day: str):
-    SolverCls = _SOLUTIONS[day]
-
-    solver = SolverCls(input_file.read())
+    solver = _SOLUTIONS[day](input_file.read())
+    print(f"Solving Day {day}")
 
     if part_1 := solver.part_1():
-        print(f"Part 1: {part_1}", file=output_file)
+        print(f"  Part 1: {part_1}", file=output_file)
 
     if part_2 := solver.part_2():
-        print(f"Part 2: {part_2}", file=output_file)
+        print(f"  Part 2: {part_2}", file=output_file)
