@@ -16,13 +16,10 @@ class Day3(BaseSolution):
         set_position = 0
 
         def reset():
-            nonlocal buffer
+            nonlocal buffer, pair, in_parens, set_position
             buffer = ""
-            nonlocal pair
             pair = ["", ""]
-            nonlocal in_parens
             in_parens = False
-            nonlocal set_position
             set_position = 0
 
         def commit():
@@ -34,9 +31,9 @@ class Day3(BaseSolution):
                 and 1 <= len(pair[1]) <= 3
             ):
                 instruction_args.append((int(pair[0]), int(pair[1])))
-            if buffer == "do":
+            elif buffer == "do":
                 enable_mul = True
-            if buffer == "don't" and with_conditionals:
+            elif buffer == "don't" and with_conditionals:
                 enable_mul = False
             reset()
 
@@ -78,4 +75,4 @@ class Day3(BaseSolution):
         return str(self._execute_memory_muls())
 
     def part_2(self) -> str:
-        return str(self._execute_memory_muls(True))
+        return str(self._execute_memory_muls(with_conditionals=True))

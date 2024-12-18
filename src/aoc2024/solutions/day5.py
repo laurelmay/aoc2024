@@ -7,15 +7,15 @@ class Day5(BaseSolution):
     def __init__(self, raw_input: str):
         super().__init__(raw_input)
 
-        ordering_rules = [line.split("|") for line in self.input if "|" in line]
-        updates = [
+        self.ordering_rules = [
+            (int(a), int(b))
+            for (a, b) in [line.split("|") for line in self.input if "|" in line]
+        ]
+        self.updates = [
             [int(update) for update in line.split(",")]
             for line in self.input
             if "," in line
         ]
-
-        self.ordering_rules = [(int(a), int(b)) for (a, b) in ordering_rules]
-        self.updates = updates
 
         to_dependencies = defaultdict(list)
         to_dependents = defaultdict(list)

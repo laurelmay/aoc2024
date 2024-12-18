@@ -2,7 +2,7 @@ from typing import Literal
 
 from aoc2024.solution import BaseSolution
 
-Direction = Literal[0] | Literal[-1] | Literal[1]
+type Direction = Literal[0] | Literal[-1] | Literal[1]
 
 
 def sign(i: int) -> Direction:
